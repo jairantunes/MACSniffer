@@ -12,7 +12,7 @@
 // https://www.quora.com/How-do-I-calculate-distance-in-meters-km-yards-from-rssi-values-in-dBm-of-BLE-in-android
 // http://electronicdesign.com/communications/understanding-wireless-range-calculations
 
-var pcap = require('pcap');
+var pcap = require('../node_pcap/pcap');
 pcap_session = pcap.createSession(process.argv[2], process.argv[3]);
 
 
