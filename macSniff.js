@@ -1,7 +1,16 @@
 // This is a simple code to execute read the MAC Adresses and BSSI of 
 // wifi stations and access points packages that are captured by the network interface
+// Here is an example of how to run this program
+// sudo node ./macSniff.js <interface> “type mgt”
+
 // references:
+//
+// how to use pcap filters:
 // http://www.tcpdump.org/manpages/pcap-filter.7.txt
+//
+// how to calculate the distance based on the BSSI power:
+// https://www.quora.com/How-do-I-calculate-distance-in-meters-km-yards-from-rssi-values-in-dBm-of-BLE-in-android
+// http://electronicdesign.com/communications/understanding-wireless-range-calculations
 
 var pcap = require('pcap');
 pcap_session = pcap.createSession(process.argv[2], process.argv[3]);
