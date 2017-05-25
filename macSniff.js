@@ -3,7 +3,7 @@
 // references:
 // http://www.tcpdump.org/manpages/pcap-filter.7.txt
 
-var pcap = require('pcap');
+var pcap = require('../node_pcap/pcap');
 pcap_session = pcap.createSession(process.argv[2], process.argv[3]);
 
 
