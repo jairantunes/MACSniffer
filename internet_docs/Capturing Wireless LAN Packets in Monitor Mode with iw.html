@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<!-- saved from url=(0070)https://sandilands.info/sgordon/capturing-wifi-in-monitor-mode-with-iw -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Capturing Wireless LAN Packets in Monitor Mode with iw</title>
+
+<link rel="StyleSheet" href="./Capturing Wireless LAN Packets in Monitor Mode with iw_files/sgordon.css" type="text/css">
+</head>
+<body>
+
+<div id="page">
+<header class="sgordon" id="sgordon" role="banner">
+<a href="https://sandilands.info/sgordon/">Home</a> |
+<a href="https://sandilands.info/sgordon/teaching/" title="Steve&#39;s Courses">Teaching</a> |
+<a href="https://sandilands.info/sgordon/linux" title="GNU/Linux and Free Open Source Software">Linux</a> |
+<a href="https://sandilands.info/sgordon/australia" title="Australia">Australia</a> |
+<a href="https://sandilands.info/sgordon/thailand" title="Thailand">Thailand</a> |
+<a href="https://www.youtube.com/StevesLectures" title="StevesLectures on YouTube">YouTube</a> |
+<a href="https://sandilands.info/sgordon/sorted-by-date-created-newest-first" title="All articles sorted by creation date, newest first">Search</a> |
+<a href="https://sandilands.info/sgordon/contact">Contact</a>
+</header>
+<div id="content">
+
+<h1 class="countheads">Capturing Wireless LAN Packets in Monitor Mode with iw</h1>
+ 
+<p>
+I previously <a href="https://sandilands.info/sgordon/capturing-wireless-lan-with-ubuntu-tcpdump-kismet">showed two ways to capture wireless LAN packets</a> in Ubuntu Linux: using the command line tool <var class="cmd">iwconfig</var> and using Kismet. Both involve putting the wireless LAN card into "monitor mode", allowing you to view and record all packets sent by other WiFi devices nearby. This includes data packets send between other devices, something which is not possible unless your device is in monitor mode.
+</p>
+
+<p>
+Here I present a third option: again using the command line in Ubuntu Linux but with the command <var class="cmd">iw</var>. The command <a href="https://wireless.wiki.kernel.org/en/users/documentation/iw">iw</a> is meant to <a href="https://wireless.wiki.kernel.org/en/users/documentation/iw/replace-iwconfig">replace iwconfig</a>. I still like and use the old interface of iwconfig, but iw seems to be much more powerful for viewing/configuring wireless information.
+</p>
+
+<h3>Getting Started with iw</h3>
+
+<p>
+First be aware that <var class="cmd">iw</var> distinguishes between wireless LAN hardware devices (the physical layer, referred to as <tt>phy</tt>) and the network interface configured to use that hardware (e.g. <tt>wlan0</tt>, similar to an Ethernet <tt>eth0</tt> interface). To see the list of devices, and interfaces for each device:
+</p>
+
+<pre><code>$ <kbd>iw dev</kbd>
+phy#0
+	Interface wlan0
+		ifindex 3
+		type managed
+</code></pre>
+
+<p>
+In my case (and most likely for most typical computers) the hardware is <var class="addr">phy0</var> and my network interface is <var class="addr">wlan0</var>. You can see detailed information about the hardware using:
+</p>
+
+<pre><code>$ <kbd>iw phy phy0 info</kbd>
+Wiphy phy0
+	Band 1:
+		Capabilities: 0x172
+			HT20/HT40
+...
+	Supported interface modes:
+		 * IBSS
+		 * managed
+		 * AP
+		 * AP/VLAN
+		 * WDS
+		 * monitor
+		 * mesh point
+	software interface modes (can always be added):
+		 * AP/VLAN
+		 * monitor
+...
+</code></pre>
+
+<p>
+Of importance for the next step is the supported/software interface modes should include entry for "monitor", meaning your hardware supports monitor mode. If there is no "monitor" entry, then you will not be able to capture other peoples data using the next steps.
+</p>
+
+<h3>Capturing in Monitor Mode</h3>
+
+<p>
+If your hardware device supports monitor mode then you must add a monitor interface called <var class="addr">mon0</var>. 
+</p>
+
+
+<pre><code>$ <kbd>sudo iw phy phy0 interface add mon0 type monitor</kbd>
+</code></pre>
+
+<p>
+You can check that it is added:
+</p>
+
+<pre><code>$ <kbd>iw dev</kbd>
+phy#0
+	Interface mon0
+		ifindex 4
+		type monitor
+	Interface wlan0
+		ifindex 3
+		type managed
+</code></pre>
+
+<p>
+We will capture with the <var class="addr">mon0</var> interface, so you can delete the normal <var class="addr">wlan0</var> interface:
+</p>
+
+<pre><code>$ <kbd>sudo iw dev wlan0 del</kbd>
+</code></pre>
+
+<p>
+Now enable the <var class="addr">mon0</var> interface using <var class="cmd">ifconfig</var>:
+</p>
+
+<pre><code>$ <kbd>sudo ifconfig mon0 up</kbd>
+</code></pre>
+
+<p>
+Before capturing, specify the wireless LAN frequency you want to capture on. You should choose the frequency based on the channels used by neighbouring access points. The frequency is given in MHz, e.g.\ channel 6 is <tt>2437</tt>.
+</p>
+
+<figure>
+<img src="./Capturing Wireless LAN Packets in Monitor Mode with iw_files/wlan-channels.png" text="Wireless LAN Channels">
+<figcaption><a href="https://commons.wikimedia.org/wiki/File:2.4_GHz_Wi-Fi_channels_%28802.11b,g_WLAN%29.svg">2.4 GHz Wi-Fi channels (802.11b,g WLAN)</a>, Michael Gauthier / Wikimedia Commons / CC-BY-SA-3.0 /</figcaption>
+</figure>
+
+<pre><code>$ <kbd>sudo iw dev mon0 set freq 2437</kbd>
+</code></pre>
+
+<p>
+To check that your interface is in monitor mode and using the correct frequency you can use <var class="cmd">iwconfig</var>:
+</p>
+
+<pre><code>$ <kbd>iwconfig mon0</kbd>
+mon0      IEEE 802.11bgn  Mode:Monitor  Frequency:2.437 GHz  Tx-Power=20 dBm   
+          Retry  long limit:7   RTS thr:off   Fragment thr:off
+          Power Management:on      
+</code></pre>
+
+<p>
+Now you can capture, e.g. using <var class="cmd">tcpdump</var>:
+</p>
+
+<pre><code>$ <kbd>sudo tcpdump -i mon0 -n -w wireless.cap
+</kbd></code></pre>
+
+<p>
+Ctrl-C to stop the capture, then view with <a href="https://www.wireshark.org/">Wireshark</a>. To display select wireless LAN frames in Wireshark use the <a href="https://www.wireshark.org/docs/dfref/w/wlan.html">wlan</a> and <a href="https://www.wireshark.org/docs/dfref/w/wlan_mgt.html">wlan_mgt</a> filters. (My <a href="http://ict.siit.tu.ac.th/~sgordon/netlab/its332ch3.html#x5-370003.3.3">brief summary</a> of Wireshark and WLAN filters)
+</p>
+
+<h3>Returning to Managed Mode</h3>
+
+<p>
+If after monitoring you want to revert the changes and continue using the <var class="addr">wlan0</var> interface in managed mode (e.g. connect to an AP), then delete the <var class="addr">mon0</var> interface and add the <var class="addr">wlan0</var> interface:
+</p>
+
+<pre><code>$ <kbd>sudo iw dev mon0 del</kbd>
+$ <kbd>sudo iw phy phy0 interface add wlan0 type managed</kbd>
+$ <kbd>iw dev</kbd>
+phy#0
+	Interface wlan0
+		ifindex 5
+		type managed
+$ <kbd>iwconfig wlan0</kbd>
+wlan0     IEEE 802.11bgn  ESSID:off/any  
+          Mode:Managed  Access Point: Not-Associated   Tx-Power=20 dBm   
+          Retry  long limit:7   RTS thr:off   Fragment thr:off
+          Power Management:on
+</code></pre>
+
+
+<h3>What Can Go Wrong?</h3>
+
+<p>
+If you get errors with some of the above <var class="cmd">iw</var> commands, then:
+</p>
+
+<ol>
+<li>Check that the wireless device is not soft/hard blocked by <var class="cmd">rfkill</var> and unblock it if it is:
+<pre><code>$ <kbd>rfkill list</kbd>
+0: phy0: Wireless LAN
+	Soft blocked: yes
+	Hard blocked: no
+$ <kbd>rfkill unblock 0</kbd>
+</code></pre>
+</li>
+<li>Make sure you are using the correct interface/device. In my examples I use <var class="addr">phy0</var>, <var class="addr">wlan0</var> and <var class="addr">mon0</var>. Yours may be different.</li>
+
+</ol>
+
+<p>
+If the commands work, but in Wireshark you can only see packets either to your computer or broadcast/multicast (i.e. you cannot see any packets from one computer to another computer, such as HTTP or SSH), then:
+</p>
+
+<ol>
+<li>Make sure the frequency you selected is being used by others.</li>
+<li>Check that your device supports monitor mode (look in the output of <var class="cmd">iw phy phy0 info</var>). Some wireless cards do not support monitor mode, and even if they do, some drivers do not support it.</li>
+</ol>
+
+<h3>Selecting a Wireless Adapter that Supports Monitor Mode</h3>
+
+<p>
+On the last point above, finding a wireless adapter that supports monitor mode to allow capturing of data packets in Linux can be troublesome. It depends on both the hardware and driver support. The <a href="https://wireless.wiki.kernel.org/en/users/drivers">Linux wireless drivers page</a> provides a quick summary of monitor mode support in different drivers. To find out which devices use which drivers you can search on <a href="https://wikidevi.com/wiki/Main_Page">WikiDevi</a>. As of March 2015, devices that use Atheros, Intel, RaLink or Broadcom chipsets seem to have good monitor mode support. 
+</p>
+
+<p></p>
+When looking to buy a wireless USB (or PCI) adapter that will support monitor mode, find some devices that are available, look them up on <a href="https://wikidevi.com/wiki/Main_Page">WikiDevi</a> to see the drivers, and then check the <a href="https://wireless.wiki.kernel.org/en/users/drivers">driver support for monitor mode</a>. Be especially careful with hardware versions: many branded devices are updated over time and although they have the same model number, the internal wireless chipset may change. Some devices I have successfully used include:
+<p></p>
+
+<ul>
+<li>USB (2014): generic brand, made by Shenzhen (<a href="http://thaieasyelec.com/products/development-boards/wireless-usb-2.0-adapter-with-antenna-detail.html">pic</a>), similar to Tenda W311MI but with attachable antenna, RaLink RT5370 (driver: rt2800usb)</li>
+<li>USB (2012): D-Link DWA-160 HW version A2, Atheros AR9170 (carl9170)</li>
+<li>USB (2011): Alfa Networks AWUS036H, Realtek 8187 (rtl8187)</li>
+<li>MiniPCI (2011): Intel Centrino Wireless-N 1000 (iwlwifi)</li>
+<li>MiniPCI (2009): Atheros (ath5k)</li>
+<li>PCI (2009): SMC WPCIG Atheros AR5007G (ath5k?)</li>
+</ul>
+
+<p>
+I recently ordered a batch of TP-Link TL-WN821N after checking that it supported monitor mode, but when delivered it was hardware version 4 which used a Realtek chipset (rtl8192cu) that did NOT fully support monitor mode (version 1 to 3 used Atheros chips, which did support monitor mode). Be carefully in checking the specific hardware versions when purchasing wireless devices.
+</p>
+
+<p class="submitted">Created on Mon, 09 Mar 2015, 6:51pm</p>
+<p class="submitted">Last changed on Tue, 10 Mar 2015, 8:15pm</p>
+ 
+</div>
+<footer class="sgordon" id="sgordon" role="banner">
+<a href="https://sandilands.info/sgordon/capturing-wifi-in-monitor-mode-with-iw#top">Top of Page</a> | 
+<a href="https://sandilands.info/sgordon/">Home</a> |
+<a href="https://sandilands.info/sgordon/teaching/" title="Steve&#39;s Courses">Teaching</a> |
+<a href="https://sandilands.info/sgordon/linux" title="GNU/Linux and Free Open Source Software">Linux</a> |
+<a href="https://sandilands.info/sgordon/australia" title="Australia">Australia</a> |
+<a href="https://sandilands.info/sgordon/thailand" title="Thailand">Thailand</a> |
+<a href="https://www.youtube.com/StevesLectures" title="StevesLectures on YouTube">YouTube</a> |
+<a href="https://sandilands.info/sgordon/sorted-by-date-created-newest-first" title="All articles sorted by creation date, newest first">Search</a> |
+<a href="https://sandilands.info/sgordon/contact">Contact</a>
+</footer>
+</div>
+
+
+
+
+<object id="__symantecPKIClientMessenger" data-supports-flavor-configuration="true" data-extension-version="0.5.0.109" style="display: none;"></object><span id="__symantecPKIClientDetector" style="display: none;">__PRESENT</span></body></html>

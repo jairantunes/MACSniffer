@@ -1,0 +1,51 @@
+INTRUCTIONS
+
+
+
+----------------------------------------------------------------------------------
+REMOVE NODE, NPM AND NODERED >>>>>
+
+pi@raspberrypi:~ $  node -v
+v0.10.29
+pi@raspberrypi:~ $  sudo su -
+root@raspberrypi:~ # apt-get remove nodered -y
+root@raspberrypi:~ # apt-get remove nodejs nodejs-legacy -y
+root@raspberrypi:~ # apt-get remove npm  -y # if you installed npm
+
+* It did not removed node completely
+
+REMOVE NODE, NPM AND NODERED  <<<<<
+-----------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------
+INSTALL NODE SPECIFIC VERSION 6.X IN THIS CASE >>>>>
+
+curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+Optional: install build tools
+sudo apt-get install -y build-essential
+
+INSTALL NODE SPECIFIC VERSIN 6.X IN THIS CASE <<<<<
+-----------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------
+INSTALL NODE-GYP >>>>>
+
+npm install -g node-gyp
+
+INSTALL NODE-GYP <<<<<
+-----------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------
+INSTALL NODE-GYP >>>>>
+
+sudo npm install --save nan
+
+INSTALL NODE-GYP <<<<<
+-----------------------------------------------------------------------------------
+
+
+
+
+

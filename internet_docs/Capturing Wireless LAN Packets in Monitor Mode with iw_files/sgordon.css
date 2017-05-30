@@ -1,0 +1,210 @@
+p {
+/*font-family:    sans-serif;*/
+    font-family: serif;
+}
+
+h1, h2, h3, h4, h5 {
+    color:      #660033;
+}
+
+a:link, a:visited, a:hover, a:active {
+    color:      #0000CC; 
+    text-decoration: none;
+}
+
+a:hover {
+background-color: #CCFFCC;
+}
+
+p.indent {
+text-align:     justify; 
+margin-left:    3cm; 
+margin-right:   3cm;
+}
+
+/* Tables and lists */
+
+table {
+border-width:   medium;
+border-style:   solid;
+}
+
+td, th {
+padding:        0.5em;
+border-width:   thin;
+border-style:   solid;
+}
+
+td.condensed, th.condensed {
+padding-top: 0.1em;
+padding-bottom: 0.1em;
+}
+
+dt {
+font-weight:    bold;
+}
+
+table.layout {
+border-style:	none;
+}
+
+td.layout, th.layout {
+padding: 		0.1em;
+border-style: 	none;
+}
+
+/* Grey background on pre, word wrapping on pre and newforum */
+
+pre {
+    background-color: #eee;
+    padding: 0.75em 1.5em;
+    border: 1px solid #ddd;
+}
+
+pre {
+    white-space: pre-wrap;       /* CSS 3 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+pre.newsforum {
+    white-space: pre-wrap;       /* CSS 3 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+/* Source code */
+
+kbd,
+code,
+file,
+pre
+samp,
+tt,
+var {
+        font-family: "DejaVu Sans Mono","Courier New",monospace,sans-serif;
+}
+
+pre { 
+    font-size: 1.2em; 
+}
+
+kbd {
+    font-weight: bold;
+}
+
+kbd.cmd,
+kbd.option {
+    font-weight: normal;
+}
+
+code.const,
+code.var,
+code.fn {
+}
+
+var.file,
+var.addr,
+var.option,
+var.cmd {
+    font-style: normal;
+    font-weight: normal;
+}
+
+var.menu {
+    font-style: italic;
+    font-weight: normal;
+    font-family: "DejaVu Sans Mono","Courier New",monospace,sans-serif;
+}
+
+/* Notes */
+
+blockquote.note {
+    background-color: #eee;
+    margin: 4em;
+    padding: 0em 1em 0em 1em;
+    border: 1px solid #ddd;
+}
+
+h3.note {
+    text-align: center;
+}
+
+/* Paragraph footer */
+
+p.footer {
+    font-size:	x-small;
+}
+
+/* Special cases */
+
+.lecturevideo {
+    text-align:	left;
+}
+
+.lastyear {
+    font-size: 0.65em;
+}
+
+li.spaced {
+    padding-bottom: 1em;
+}
+
+.thai {
+    font-size: 1.3em;
+}
+
+.submitted {
+    font-size: 0.8em;
+    font-style: italic;
+}
+
+.articledate {
+    font-size: 50%;
+}
+
+.pdflink {
+    font-size: 70%;
+}
+
+/* Figures */
+
+img.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+figcaption {
+    font-style: italic;
+    text-align: center;
+    font-size: 0.9em;
+}  
+
+figure {
+    text-align: center;
+}
+
+
+/* Header and Footer */
+
+header.sgordon {
+    font-size: 80%;
+}
+footer.sgordon {
+    font-size: 80%;
+}
+
+/* Sorted Index Pages */
+h1.sorted,
+h2.sorted,
+h3.sorted {
+}
+
+
+p.sorted {
+}

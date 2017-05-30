@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)https://www.npmjs.com/package/pcap -->
+<html lang="en" prefix="og: http://ogp.me/ns#" class=" js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">.autocomplete-container {  overflow: visible;}.autocomplete-suggestions {  border: 1px solid #999;  background: #FFF;  overflow-x: hidden;  overflow-y: auto;  cursor: default;}.autocomplete-suggestion {  padding: 2px 5px;  white-space: nowrap;  overflow: hidden;}.autocomplete-selected {  background: #F0F0F0;}.autocomplete-container strong {  font-weight: bold;}#powered-by-constructor-io {  font-size: 0.8em;  text-align:right;  background-color:rgb(255,255,192);  font-family:sans-serif;  padding: 4px 10px;  position: absolute;  border: 1px solid #999;}#constructorio-backing-node {  background-color:rgb(255,255,255);  padding: 4px 10px;  position: absolute;  border: 1px solid #FFF;}.autocomplete-suggestion-image {  float:left;  padding-right: 10px;}#autocomplete-direct-results:before {  content:'Products'}#autocomplete-search-container:before {  content:'Search Suggestions'}.autocomplete-suggestion-description {  font-size: 0.8em;  display: block;  margin-left: 10px;  line-height: 1.0em;}</style>
+  
+  
+  <title>pcap</title>
+
+    <meta name="description" content="raw packet capture, decoding, and analysis">
+    <meta property="og:description" content="raw packet capture, decoding, and analysis">
+    <meta property="og:title" content="pcap">
+    <meta property="og:url" content="https://www.npmjs.com/package/pcap">
+    <meta property="og:site_name" content="npm">
+    <meta name="keywords" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="https://www.npmjs.com/package/pcap">
+    <meta name="twitter:title" content="npm: pcap">
+    <meta name="twitter:description" content="raw packet capture, decoding, and analysis">
+  
+  
+  <meta http-equiv="cleartype" content="on">
+  
+  <meta name="apple-mobile-web-app-capable" content="no">
+  
+  
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,initial-scale=1,user-scalable=yes">
+  
+  <meta name="x-npm:ga:id" content="UA-47041310-1">
+  <meta name="x-npm:ga:dimensions" content="{&quot;aboveChrome&quot;:&quot;dimension1&quot;,&quot;belowHeader&quot;:&quot;dimension3&quot;,&quot;packagePage&quot;:&quot;dimension2&quot;}">
+  
+  <link rel="canonical" href="https://www.npmjs.com/package/pcap">
+  <link rel="search" type="application/opensearchdescription+xml" href="https://www.npmjs.com/opensearch.xml" title="npm">
+
+    <link rel="stylesheet" media="all" href="./pcap_files/index.css">
+
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <![endif]-->
+
+  <link rel="stylesheet" href="./pcap_files/css">
+  
+    <script type="text/javascript" async="" src="./pcap_files/ec.js"></script><script async="" src="./pcap_files/analytics.js"></script><script src="./pcap_files/index.min.js"></script>
+    <style>
+      .marketing {
+  margin: 0px;
+  margin-left: -10px;
+  margin-bottom: 40px;
+  padding: 0px 0px;
+  font-size: 15px;
+  font-style: normal;
+  fond-variant: normal;
+  fort-weight: normal;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.4);
+  text-decoration: none;
+  letter-spacing: -0.03em;
+  line-height: 22.5px;
+  }
+  
+  .marketing a {
+  font-weight: 400;
+  text-decoration: none;
+  color: #cb3837;
+  }
+  
+  .marketing h3 {
+  display: block;
+  margin: 0;
+  padding: 20px 0 10px 0;
+  font-size: 20px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 22px;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.8);
+  }
+  
+  .marketing h3 a {
+  color: rgba(0, 0, 0, 0.8);
+  }
+  
+  .marketing h3 a:hover {
+  color: #cb3837;
+  }
+  
+  .marketing p {
+  line-height: 22.5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  }
+  
+  .marketing p a {
+  white-space: nowrap;
+  }
+  
+  #marketing-texthed {
+  margin-left: 10px;
+  }
+    </style>
+  <link rel="apple-touch-icon" sizes="57x57" href="https://www.npmjs.com/static/images/touch-icons/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="https://www.npmjs.com/static/images/touch-icons/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://www.npmjs.com/static/images/touch-icons/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://www.npmjs.com/static/images/touch-icons/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="https://www.npmjs.com/static/images/touch-icons/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="https://www.npmjs.com/static/images/touch-icons/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="https://www.npmjs.com/static/images/touch-icons/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="https://www.npmjs.com/static/images/touch-icons/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.npmjs.com/static/images/touch-icons/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="https://www.npmjs.com/static/images/touch-icons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://www.npmjs.com/static/images/touch-icons/favicon-230x230.png" sizes="230x230">
+  <link rel="icon" type="image/png" href="https://www.npmjs.com/static/images/touch-icons/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="https://www.npmjs.com/static/images/touch-icons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://www.npmjs.com/static/images/touch-icons/coast-228x228.png" sizes="228x228">
+  <link rel="icon" type="image/png" href="https://www.npmjs.com/static/images/touch-icons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="https://www.npmjs.com/static/images/touch-icons/manifest.json">
+  <link rel="yandex-tableau-widget" href="https://www.npmjs.com/static/images/touch-icons/yandex-browser-manifest.json">
+  <meta property="og:image" content="https://www.npmjs.com/static/images/touch-icons/open-graph.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="msapplication-TileColor" content="#cb3837">
+  <meta name="msapplication-TileImage" content="/static/images/touch-icons/mstile-144x144.png">
+  <meta name="msapplication-config" content="/static/images/touch-icons/browserconfig.xml">
+  <meta name="theme-color" content="#cb3837">
+
+<style id="iconic-responsive-css" type="text/css">/* Iconic Responsive Support Styles */
+.iconic-property-fill, .iconic-property-text {stroke: none !important;}
+.iconic-property-stroke {fill: none !important;}
+svg.iconic.iconic-fluid {height:100% !important;width:100% !important;}
+svg.iconic.iconic-sm:not(.iconic-size-md):not(.iconic-size-lg), svg.iconic.iconic-size-sm{width:16px;height:16px;}
+svg.iconic.iconic-md:not(.iconic-size-sm):not(.iconic-size-lg), svg.iconic.iconic-size-md{width:32px;height:32px;}
+svg.iconic.iconic-lg:not(.iconic-size-sm):not(.iconic-size-md), svg.iconic.iconic-size-lg{width:128px;height:128px;}
+svg.iconic-sm > g.iconic-md, svg.iconic-sm > g.iconic-lg, svg.iconic-md > g.iconic-sm, svg.iconic-md > g.iconic-lg, svg.iconic-lg > g.iconic-sm, svg.iconic-lg > g.iconic-md {display: none;}
+svg.iconic.iconic-icon-sm > g.iconic-lg, svg.iconic.iconic-icon-md > g.iconic-lg {display:none;}
+svg.iconic-sm:not(.iconic-icon-md):not(.iconic-icon-lg) > g.iconic-sm, svg.iconic-md.iconic-icon-sm > g.iconic-sm, svg.iconic-lg.iconic-icon-sm > g.iconic-sm {display:inline;}
+svg.iconic-md:not(.iconic-icon-sm):not(.iconic-icon-lg) > g.iconic-md, svg.iconic-sm.iconic-icon-md > g.iconic-md, svg.iconic-lg.iconic-icon-md > g.iconic-md {display:inline;}
+svg.iconic-lg:not(.iconic-icon-sm):not(.iconic-icon-md) > g.iconic-lg, svg.iconic-sm.iconic-icon-lg > g.iconic-lg, svg.iconic-md.iconic-icon-lg > g.iconic-lg {display:inline;}</style><style>.autocomplete-container, .autocomplete-suggestions, #powered-by-constructor-io { width: NaNpx !important }</style></head>
+
+<body itemscope="" itemtype="http://schema.org/WebSite" data-crumb="n3AlaeaOxKI4PEf60kRzZlYkrhpeKZWuVRxk8IeYAu2">
+  <meta itemprop="url" content="https://www.npmjs.com/">
+
+
+  <header class="anonymous   ">
+  <!-- logo -->
+  <div class="header-item brand-container">
+    <div class="logo-container" id="npm-logo">
+      <a href="https://www.npmjs.com/"><svg viewBox="0 0 18 7">
+	<path fill="#CB3837" d="M0,0v6h5v1h4v-1h9v-6"></path>
+	<path fill="#FFF" d="M1,1v4h2v-3h1v3h1v-4h1v5h2v-4h1v2h-1v1h2v-4h1v4h2v-3h1v3h1v-3h1v3h1v-4"></path>
+</svg></a>
+    </div>
+  </div>
+  <!-- /logo -->
+
+  <!-- search -->
+  <div class="header-item header-search-container">
+    <form class="site-search" id="npm-search" action="https://www.npmjs.com/search" method="get" itemprop="potentialAction" itemscope="" itemtype="http://schema.org/SearchAction">
+      <meta itemprop="target" content="https://www.npmjs.com/search?q={q}">
+      <div id="site-search-container">
+          <input name="q" value="" type="search" id="site-search" placeholder="find packages" tabindex="1" autocorrect="off" autocapitalize="off" itemprop="query-input" autocomplete="off">
+      </div>
+      <button tabindex="2" type="submit">
+        <span class="a11y-only">Search</span>
+        <svg viewBox="0 0 34 34" fill="none" stroke="currentColor">
+    <ellipse stroke-width="3" cx="16" cy="15" rx="12" ry="12"></ellipse>
+    <path d="M26 26 l 8 8" stroke-width="3" stroke-linecap="square"></path>
+</svg>
+      </button>
+    </form>
+  </div>
+
+
+  <!-- menu 1 -->
+  <div class="header-item user-info-container">
+    <div class="user-info">
+        <ul class="user-info-salutation single">
+          <li><a href="https://www.npmjs.com/signup">sign up</a> or <a href="https://www.npmjs.com/login">log in</a></li>
+          <li><a href="https://www.npmjs.com/login"><span class="a11y-only">log in</span><svg viewBox="-2765 2857 1080 1080">
+  <path fill="#986844" d="M-1811.2 3598.5c-.1-4.3-.3-11.3-.8-20.3-.9-15.8-2.7-40.9-6.6-70.7-6.9-52.6-21.6-130.1-52.6-200.4-22.3-50.4-53.5-97.1-90.3-135.2-4.4-20.5-16.7-66.5-43.5-104.8l-5-7.2-54 35.5c-44.5-22.4-91-33.7-138.6-33.7-47.5 0-94.1 11.3-138.6 33.7l-54-35.5-5 7.2c-26.8 38.3-39 84.3-43.5 104.8-36.8 38.1-68 84.8-90.3 135.3-31.1 70.3-45.8 147.8-52.6 200.4-6.1 46.6-7.2 81.6-7.5 93.8 16.6 14 31.3 29.8 46.9 45 17.2 16.7 39.4 28.2 59.1 41.6 1.7 1.1 3.1 2.6 4.2 4.1 15.7 10.4 31 15.4 50.2 19.5 19.2 4.1 35.6 5.6 55.6 7.3 38.7 3.2 77 7.7 115.5 12.6 43.1 5.4 86.5 11.5 130 13.1 41.6 1.5 81.8-9 121.8-19.3 8.9-2.3 17.9-4.5 26.8-6.8.6-4.2 3-8.1 6.7-10.4 40.1-25 81.2-48.2 122-72 5.9-3.5 13.7-1.9 17.9 3.3 9-8.9 17.1-18.2 24.3-27.9l.2-.2.2-.2c1.7-2.6 1.8-2.7 1.5-12.6z"></path>
+  <path fill="#FFF" d="M-1808.7 3494.8c-6.9-53.2-21.8-131.7-53.4-203.2-22.3-50.5-53.5-97.5-90.3-136.1-5.5-24.4-18.2-68.2-44.5-105.7l-10.6-15.1-57.3 37.7c-44.3-21.4-90.6-32.2-137.9-32.2-47.2 0-93.6 10.8-137.9 32.2l-57.3-37.7-10.6 15.1c-26.2 37.5-39 81.2-44.5 105.7-36.7 38.5-67.9 85.5-90.3 136.1-31.6 71.4-46.5 149.9-53.4 203.2-7.5 57.7-7.6 98-7.6 99.7v6.3l3.8 5.1c26 35 62.9 64.7 109.6 88.3 36.9 18.6 80 33.6 128.3 44.4 82.2 18.5 151.8 19 159.5 19h.6c7.7 0 77.3-.5 159.5-19 48.3-10.8 91.4-25.8 128.3-44.4 46.7-23.6 83.6-53.3 109.6-88.3l3.7-5v-6.3c.4-1.8.2-42.3-7.3-99.8zm-118.3 174.3c-34.8 17.6-75.8 31.8-121.8 42.1-80.7 18.1-150.4 18.3-153.4 18.3h-.6c-2.9 0-72.7-.2-153.4-18.3-46-10.3-87-24.5-121.8-42.1-41.7-21.1-74.7-47.2-98-77.6.4-22.5 5.1-167.5 58.6-288.5 21.8-49.3 52.4-94.9 88.5-131.8l1.8-1.9.5-2.6c2.7-13.1 12.9-56.4 36.3-93.4l37.2 24.5-7.3 16.6 22.8-11.9c43.3-22.6 88.7-34.1 135-34.1s91.7 11.5 135 34.1l22.8 11.9-7.3-16.6 37.2-24.5c23.4 37 33.6 80.4 36.3 93.4l.5 2.6 1.8 1.9c36.1 36.9 66.7 82.5 88.5 131.8 53.5 121 58.2 266.1 58.6 288.5-23.2 30.4-56.1 56.5-97.8 77.6zm-163-13c0 30.1-50.4 54.4-112.5 54.4s-112.5-24.4-112.5-54.4c0-30.1 50.4-54.4 112.5-54.4s112.5 24.3 112.5 54.4zm-223.5-65.3c0 12.3-10 22.3-22.3 22.3s-22.3-10-22.3-22.3 10-22.3 22.3-22.3c12.3-.1 22.3 9.9 22.3 22.3zm267.8 0c0 12.3-10 22.3-22.3 22.3s-22.3-10-22.3-22.3 10-22.3 22.3-22.3c12.3-.1 22.3 9.9 22.3 22.3z"></path>
+</svg></a></li>
+        </ul>
+    </div> <!-- .user-info -->
+  </div>
+  <!-- /menu 1 -->
+
+  <!-- menu 2 -->
+  <div class="header-item header-nav-menu-container">
+    <a href="https://www.npmjs.com/package/pcap#" id="npm-expansions" class="npm-expansions" data-event-trigger="click" data-event-name="npm-expansions">Nondeterministic Polynomial Munchies</a>
+
+    <div class="nav-menu-container" role="navigation">
+      <a class="nav-toggle drop-down-menu-toggle" href="https://www.npmjs.com/package/pcap#product-navigation"><span class="a11y-only">Toggle Navigation</span>
+        <svg viewBox="0 0 44 44">
+    <rect x="4" y="12" fill="currentColor" width="36" height="2"></rect>
+    <rect x="4" y="20" fill="currentColor" width="36" height="2"></rect>
+    <rect x="4" y="28" fill="currentColor" width="36" height="2"></rect>
+</svg>
+      </a>
+
+
+      <div class="drop-down-menu-container" role="menu">
+        <nav id="product-navigation" class="product-navigation drop-down-menu">
+          <ul class="drop-down-menu-section products-list">
+            <li><a id="nav-enterprise-link" href="https://www.npmjs.com/npm/enterprise">npm Enterprise</a></li>
+            <li><a id="nav-features-link" href="https://www.npmjs.com/features" data-event-trigger="click" data-event-name="features-nav-link">features</a></li>
+            <li><a id="nav-pricing-link" href="https://www.npmjs.com/pricing">pricing</a></li>
+            <li><a id="nav-docs-link" href="https://docs.npmjs.com/">documentation</a></li>
+            <li><a id="nav-support-link" href="https://www.npmjs.com/support">support</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <!-- /menu 2 -->
+
+
+
+</header>
+
+
+
+
+    <div class="container content">
+      
+<div class="content-column">
+
+  <h1 class="package-name">
+    <a href="https://www.npmjs.com/package/pcap" class="active">pcap</a>
+      <i class="icon-public"></i>
+  </h1>
+
+  <form class="star">
+    <input type="hidden" name="name" value="pcap">
+    <input id="star-input" type="checkbox" name="isStarred" value="true">
+    <label for="star-input" class="icon-star"></label>
+      <input type="hidden" name="crumb" value="n3AlaeaOxKI4PEf60kRzZlYkrhpeKZWuVRxk8IeYAu2">
+  </form>
+
+  <div id="readme" class="markdown">
+      <h1 class="package-name-redundant"><a id="user-content-node_pcap" class="deep-link" href="https://www.npmjs.com/package/pcap#node_pcap"><svg aria-hidden="true" class="deep-link-icon" height="16" version="1.1" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>node_pcap</h1>
+<p>This is a set of bindings from <code>libpcap</code> to node as well as some useful libraries to decode, print, and
+analyze packets.  <code>libpcap</code> is a packet capture library used by programs like <code>tcpdump</code> and <code>wireshark</code>.
+It has been tested on OSX and Linux.</p>
+<p><code>node_pcap</code> is useful for many things, but it does not yet understand all common protocols.  Common reasons
+to use this package are
+<a href="https://github.com/mranney/http_trace">http_trace</a>, and
+<a href="https://github.com/mnot/htracr">htracr</a>.</p>
+<h2><a id="user-content-why-capture-packets-in-javascript" class="deep-link" href="https://www.npmjs.com/package/pcap#why-capture-packets-in-javascript"><svg aria-hidden="true" class="deep-link-icon" height="16" version="1.1" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Why capture packets in JavaScript?</h2>
+<p>There are already many tools for capturing, decoding, and analyzing packets.  Many of them are thoroughly
+tested and very fast.  Why would anybody want to do such low level things like packet capture and analysis
+in JavaScript?  A few reasons:</p>
+<ul>
+<li>
+<p>JavaScript makes writing event-based programs very natural.  Each packet that is captured generates an
+event, and as higher level protocols are decoded, they might generate events as well.  Writing code to handle
+these events is much easier and more readable with anonymous functions and closures.</p>
+</li>
+<li>
+<p>node makes handling binary data in JavaScript fast and efficient with its Buffer class.  Decoding packets involves
+a lot of binary slicing and dicing which can be awkward with JavaScript strings.</p>
+</li>
+<li>
+<p>Writing servers that capture packets, process them somehow, and then serve the processed data up in some way is
+very straightforward in node.</p>
+</li>
+<li>
+<p>Node has a very good HTTP parser that is used to progressively decode HTTP sessions.</p>
+</li>
+</ul>
+<h2><a id="user-content-installation" class="deep-link" href="https://www.npmjs.com/package/pcap#installation"><svg aria-hidden="true" class="deep-link-icon" height="16" version="1.1" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installation</h2>
+<p>You will need <code>libpcap</code> installed.  Most OSX machines seem to have it.  All major Linux distributions have it available
+either by default or with a package like <code>libpcap-dev</code>.</p>
+<p>The easiest way to get <code>node_pcap</code> and its tools is with <code>npm</code>:</p>
+<pre><code>npm install pcap
+</code></pre>
+<p>If you want to hack on the source code, you can get it from github.  Clone the repo like this:</p>
+<pre><code>git clone git://github.com/mranney/node_pcap.git
+</code></pre>
+<p>To compile the native code bindings, do this:</p>
+<pre><code>cd node_pcap
+node-gyp configure build
+</code></pre>
+<p>Assuming it built without errors, you should be able to run the examples and then write your own packet
+capture programs.</p>
+<h2><a id="user-content-usage" class="deep-link" href="https://www.npmjs.com/package/pcap#usage"><svg aria-hidden="true" class="deep-link-icon" height="16" version="1.1" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usage</h2>
+<p>There are several example programs that show how to use <code>node_pcap</code>.  These examples are best documentation.
+Try them out and see what they do.</p>
+<p>To use this library in your own program, <code>pcap.js</code> and <code>pcap_binding.node</code> must be in <code>NODE_PATH</code>.  <code>npm</code>
+takes care of this automatically.</p>
+<h3><a id="user-content-starting-a-capture-session" class="deep-link" href="https://www.npmjs.com/package/pcap#starting-a-capture-session"><svg aria-hidden="true" class="deep-link-icon" height="16" version="1.1" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Starting a capture session</h3>
+<p>To start a capture session, call <code>pcap.createSession</code> with an interface name and a pcap filter string:</p>
+<pre><code>var pcap = require('pcap'),
+    pcap_session = pcap.createSession(interface, filter);
+</code></pre>
+<p><code>interface</code> is the name of the interface on which to capture packets.  If passed an empty string, <code>libpcap</code>
+will try to pick a "default" interface, which is often just the first one in some list and not what you want.</p>
+<p><code>filter</code> is a pcap filter expression, see <code>pcap-filter(7)</code> for more information.  An empty string will capture
+all packets visible on the interface.</p>
+<p>Note that <code>node_pcap</code> always opens the interface in promiscuous mode, which generally requires running as root.
+Unless you are recklessly roaming about as root already, you'll probably want to start your node program like this:</p>
+<pre><code>sudo node test.js
+</code></pre>
+<p><code>pcap_session</code> is an <code>EventEmitter</code> that emits a <code>packet</code> event.  The only argument to the callback will be a
+<code>Buffer</code> object with the raw bytes returned by <code>libpcap</code>.</p>
+<p>Listening for packets:</p>
+<pre><code>pcap_session.on('packet', function (raw_packet) {
+    // do some stuff with a raw packet
+});
+</code></pre>
+<p>To convert <code>raw_packet</code> into a JavaScript object that is easy to work with, decode it:</p>
+<pre><code>var packet = pcap.decode.packet(raw_packet);
+</code></pre>
+<p>The protocol stack is exposed as a nested set of objects.  For example, the TCP destination port is part of TCP
+which is encapsulated within IP, which is encapsulated within a link layer.  Access it like this:</p>
+<pre><code>packet.link.ip.tcp.dport
+</code></pre>
+<p>This structure is easy to explore with <code>sys.inspect</code>.</p>
+<h3><a id="user-content-tcp-analysis" class="deep-link" href="https://www.npmjs.com/package/pcap#tcp-analysis"><svg aria-hidden="true" class="deep-link-icon" height="16" version="1.1" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TCP Analysis</h3>
+<p>TCP can be analyzed by feeding the packets into a <code>TCP_tracker</code> and then listening for <code>start</code> and <code>end</code> events.</p>
+<pre><code>var pcap = require('pcap'),
+    tcp_tracker = new pcap.TCP_tracker(),
+    pcap_session = pcap.createSession(interface, "ip proto \\tcp");
+
+tcp_tracker.on('start', function (session) {
+    console.log("Start of TCP session between " + session.src_name + " and " + session.dst_name);
+});
+
+tcp_tracker.on('end', function (session) {
+    console.log("End of TCP session between " + session.src_name + " and " + session.dst_name);
+});
+
+pcap_session.on('packet', function (raw_packet) {
+    var packet = pcap.decode.packet(raw_packet);
+    tcp_tracker.track_packet(packet);
+});
+</code></pre>
+<p>You must only send IPv4 TCP packets to the TCP tracker.  Explore the <code>session</code> object with <code>sys.inspect</code> to
+see the wonderful things it can do for you.  Hopefully the names of the properties are self-explanatory:</p>
+<pre><code>{ src: '10.51.2.130:55965'
+, dst: '75.119.207.0:80'
+, syn_time: 1280425738896.771
+, state: 'ESTAB'
+, key: '10.51.2.130:55965-75.119.207.0:80'
+, send_isn: 2869922608
+, send_window_scale: 8
+, send_packets: { '2869922609': 1280425738896.771 }
+, send_acks: { '1063203923': 1280425738911.618 }
+, send_retrans: {}
+, send_next_seq: 2869922609
+, send_acked_seq: null
+, send_bytes_ip: 60
+, send_bytes_tcp: 108
+, send_bytes_payload: 144
+, recv_isn: 1063203922
+, recv_window_scale: 128
+, recv_packets: { '1063203923': 1280425738911.536 }
+, recv_acks: { '2869922609': 1280425738911.536 }
+, recv_retrans: {}
+, recv_next_seq: null
+, recv_acked_seq: null
+, recv_bytes_ip: 20
+, recv_bytes_tcp: 40
+, recv_bytes_payload: 0
+, src_name: '10.51.2.130:55965'
+, dst_name: '75.119.207.0:80'
+, current_cap_time: 1280425738911.65
+</code></pre>
+<h3><a id="user-content-http-analysis" class="deep-link" href="https://www.npmjs.com/package/pcap#http-analysis"><svg aria-hidden="true" class="deep-link-icon" height="16" version="1.1" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>HTTP Analysis</h3>
+<p>The <code>TCP_tracker</code> also detects and decodes HTTP on all streams it receives.  If HTTP is detected, several
+new events will be emitted:</p>
+<ul>
+<li>
+<p><code>http request</code>: function(session, http)</p>
+</li>
+<li>
+<p><code>http request body</code>: function(session, http, data)</p>
+<p>Note that <code>data</code> is a node Buffer object sliced from the original packet.  If you want to use it past the
+current tick, you'll need to make a copy somehow.</p>
+</li>
+<li>
+<p><code>http request complete</code>: function(session, http)</p>
+</li>
+<li>
+<p><code>http response</code>: function(session, http)</p>
+</li>
+<li>
+<p><code>http response body</code>: function(session, http, data)</p>
+<p><code>data</code> is a Buffer slice.  See above.</p>
+</li>
+<li>
+<p><code>http response complete</code>: function(session, http)</p>
+</li>
+</ul>
+<p>See <code>http_trace</code> for an example of how to use these events to decode HTTP.</p>
+<h3><a id="user-content-websocket-analysis" class="deep-link" href="https://www.npmjs.com/package/pcap#websocket-analysis"><svg aria-hidden="true" class="deep-link-icon" height="16" version="1.1" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>WebSocket Analysis</h3>
+<p>The <code>TCP_tracker</code> further detects and decodes WebSocket traffic on all streams it receives.</p>
+<ul>
+<li><code>websocket upgrade</code>: function(session, http)</li>
+<li><code>websocket message</code>: function(session, dir, message)</li>
+</ul>
+<p>See <code>http_trace</code> for an example of how to use these events to decode WebSocket.</p>
+<h2><a id="user-content-some-common-problems" class="deep-link" href="https://www.npmjs.com/package/pcap#some-common-problems"><svg aria-hidden="true" class="deep-link-icon" height="16" version="1.1" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Some Common Problems</h2>
+<h3><a id="user-content-tcp-segmentation-offload---tso" class="deep-link" href="https://www.npmjs.com/package/pcap#tcp-segmentation-offload---tso"><svg aria-hidden="true" class="deep-link-icon" height="16" version="1.1" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TCP Segmentation Offload - TSO</h3>
+<p>TSO is a technique that modern operating systems use to offload the burden of IP/TCP header computation to
+the network hardware.  It also reduces the number of times that data is moved data between the kernel and the
+network hardware.  TSO saves CPU when sending data that is larger than a single IP packet.</p>
+<p>This is amazing and wonderful, but it does make some kinds of packet sniffing more difficult.  In many cases,
+it is important to see the exact packets that are sent, but if the network hardware is sending the packets,
+these are not available to <code>libpcap</code>.  The solution is to disable TSO.</p>
+<p>OSX:</p>
+<pre><code>sudo sysctl -w net.inet.tcp.tso=0
+</code></pre>
+<p>Linux (substitute correct interface name):</p>
+<pre><code>sudo ethtool -K eth0 tso off
+</code></pre>
+<p>The symptoms of needing to disable TSO are messages like, "Received ACK for packet we didn't see get sent".</p>
+<h3><a id="user-content-ipv6" class="deep-link" href="https://www.npmjs.com/package/pcap#ipv6"><svg aria-hidden="true" class="deep-link-icon" height="16" version="1.1" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>IPv6</h3>
+<p>Sadly, <code>node_pcap</code> does not know how to decode IPv6 packets yet.  Often when capturing traffic to <code>localhost</code>, IPv6 traffic
+will arrive surprisingly, even though you were expecting IPv4.  A common case is the hostname <code>localhost</code>, which many client programs will
+resolve to the IPv6 address <code>::1</code> and then will try <code>127.0.0.1</code>.  Until we get IPv6 decode support, a <code>libpcap</code> filter can be
+set to only see IPv4 traffic:</p>
+<pre><code>sudo http_trace lo0 "ip proto \tcp"
+</code></pre>
+<p>The backslash is important.  The pcap filter language has an ambiguity with the word "tcp", so by escaping it,
+you'll get the correct interpretation for this case.</p>
+<h3><a id="user-content-dropped-packets" class="deep-link" href="https://www.npmjs.com/package/pcap#dropped-packets"><svg aria-hidden="true" class="deep-link-icon" height="16" version="1.1" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Dropped packets</h3>
+<p>There are several levels of buffering involved in capturing packets.  Sometimes these buffers fill up, and
+you'll drop packets.  If this happens, it becomes difficult to reconstruct higher level protocols.  The best
+way to keep the buffers from filling up is to use pcap filters to only consider traffic that you need to decode.
+The pcap filters are very efficient and run close to the kernel where they can process high packet rates.</p>
+<p>If the pcap filters are set correctly and <code>libpcap</code> still drops packets, it is possible to increase <code>libpcap</code>'s
+buffer size.  At the moment, this requires changing <code>pcap_binding.cc</code>.  Look for <code>pcap_set_buffer_size()</code> and
+set to a larger value.</p>
+<h2><a id="user-content-examplessimple_capture" class="deep-link" href="https://www.npmjs.com/package/pcap#examplessimple_capture"><svg aria-hidden="true" class="deep-link-icon" height="16" version="1.1" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>examples/simple_capture</h2>
+<p>This program captures packets and prints them using the built in simple printer.  Here's a sample of it's output.
+In another window I ran <code>curl nodejs.org</code>.</p>
+<pre><code>mjr:~/work/node_pcap$ sudo node examples/simple_capture.js en1 ""
+libpcap version 1.0.0
+en0 no address
+* en1 10.240.0.133/255.255.255.0
+lo0 127.0.0.1/255.0.0.0
+00:18:39:ff:f9:1c -&gt; 00:1f:5b:ce:3e:29 10.240.0.1 ARP request 10.240.0.133
+00:1f:5b:ce:3e:29 -&gt; 00:18:39:ff:f9:1c 10.240.0.133 ARP reply 10.240.0.1 hwaddr 00:18:39:ff:f9:1c
+00:1f:5b:ce:3e:29 -&gt; 00:18:39:ff:f9:1c 10.240.0.133:53808 -&gt; 97.107.132.72:80 TCP len 64
+00:1f:5b:ce:3e:29 -&gt; 00:18:39:ff:f9:1c 10.240.0.133:57052 -&gt; 10.240.0.1:53 DNS question 133.0.240.10.in-addr.arpa PTR
+00:1f:5b:ce:3e:29 -&gt; 00:18:39:ff:f9:1c 10.240.0.133:57052 -&gt; 10.240.0.1:53 DNS question 72.132.107.97.in-addr.arpa PTR
+00:1f:5b:ce:3e:29 -&gt; 00:18:39:ff:f9:1c 10.240.0.133:57052 -&gt; 10.240.0.1:53 DNS question 1.0.240.10.in-addr.arpa PTR
+00:18:39:ff:f9:1c -&gt; 00:1f:5b:ce:3e:29 10.240.0.1:53 -&gt; 10.240.0.133:57052 DNS answer 133.0.240.10.in-addr.arpa PTR
+00:18:39:ff:f9:1c -&gt; 00:1f:5b:ce:3e:29 10.240.0.1:53 -&gt; rv-mjr2.ranney.com:57052 DNS answer 72.132.107.97.in-addr.arpa PTR
+00:18:39:ff:f9:1c -&gt; 00:1f:5b:ce:3e:29 10.240.0.1:53 -&gt; rv-mjr2.ranney.com:57052 DNS answer 1.0.240.10.in-addr.arpa PTR
+00:18:39:ff:f9:1c -&gt; 00:1f:5b:ce:3e:29 tinyclouds.org:80 -&gt; rv-mjr2.ranney.com:53808 TCP len 60
+00:1f:5b:ce:3e:29 -&gt; 00:18:39:ff:f9:1c rv-mjr2.ranney.com:53808 -&gt; tinyclouds.org:80 TCP len 52
+00:1f:5b:ce:3e:29 -&gt; 00:18:39:ff:f9:1c rv-mjr2.ranney.com:53808 -&gt; tinyclouds.org:80 TCP len 196
+00:18:39:ff:f9:1c -&gt; 00:1f:5b:ce:3e:29 tinyclouds.org:80 -&gt; rv-mjr2.ranney.com:53808 TCP len 52
+00:18:39:ff:f9:1c -&gt; 00:1f:5b:ce:3e:29 tinyclouds.org:80 -&gt; rv-mjr2.ranney.com:53808 TCP len 1500
+00:18:39:ff:f9:1c -&gt; 00:1f:5b:ce:3e:29 tinyclouds.org:80 -&gt; rv-mjr2.ranney.com:53808 TCP len 1500
+00:1f:5b:ce:3e:29 -&gt; 00:18:39:ff:f9:1c rv-mjr2.ranney.com:53808 -&gt; tinyclouds.org:80 TCP len 52
+00:18:39:ff:f9:1c -&gt; 00:1f:5b:ce:3e:29 tinyclouds.org:80 -&gt; rv-mjr2.ranney.com:53808 TCP len 1500
+00:1f:5b:ce:3e:29 -&gt; 00:18:39:ff:f9:1c rv-mjr2.ranney.com:53808 -&gt; tinyclouds.org:80 TCP len 52
+00:18:39:ff:f9:1c -&gt; 00:1f:5b:ce:3e:29 tinyclouds.org:80 -&gt; rv-mjr2.ranney.com:53808 TCP len 1500
+00:18:39:ff:f9:1c -&gt; 00:1f:5b:ce:3e:29 tinyclouds.org:80 -&gt; rv-mjr2.ranney.com:53808 TCP len 1500
+00:1f:5b:ce:3e:29 -&gt; 00:18:39:ff:f9:1c rv-mjr2.ranney.com:53808 -&gt; tinyclouds.org:80 TCP len 52
+00:18:39:ff:f9:1c -&gt; 00:1f:5b:ce:3e:29 tinyclouds.org:80 -&gt; rv-mjr2.ranney.com:53808 TCP len 1500
+00:1f:5b:ce:3e:29 -&gt; 00:18:39:ff:f9:1c rv-mjr2.ranney.com:53808 -&gt; tinyclouds.org:80 TCP len 52
+00:18:39:ff:f9:1c -&gt; 00:1f:5b:ce:3e:29 tinyclouds.org:80 -&gt; rv-mjr2.ranney.com:53808 TCP len 1500
+00:18:39:ff:f9:1c -&gt; 00:1f:5b:ce:3e:29 tinyclouds.org:80 -&gt; rv-mjr2.ranney.com:53808 TCP len 337
+00:1f:5b:ce:3e:29 -&gt; 00:18:39:ff:f9:1c rv-mjr2.ranney.com:53808 -&gt; tinyclouds.org:80 TCP len 52
+00:1f:5b:ce:3e:29 -&gt; 00:18:39:ff:f9:1c rv-mjr2.ranney.com:53808 -&gt; tinyclouds.org:80 TCP len 52
+00:1f:5b:ce:3e:29 -&gt; 00:18:39:ff:f9:1c rv-mjr2.ranney.com:53808 -&gt; tinyclouds.org:80 TCP len 52
+00:18:39:ff:f9:1c -&gt; 00:1f:5b:ce:3e:29 tinyclouds.org:80 -&gt; rv-mjr2.ranney.com:53808 TCP len 52
+00:1f:5b:ce:3e:29 -&gt; 00:18:39:ff:f9:1c rv-mjr2.ranney.com:53808 -&gt; tinyclouds.org:80 TCP len 52
+</code></pre>
+<h2><a id="user-content-output-from-sessionfindalldevs-" class="deep-link" href="https://www.npmjs.com/package/pcap#output-from-sessionfindalldevs-"><svg aria-hidden="true" class="deep-link-icon" height="16" version="1.1" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Output from <code>session.findalldevs</code>:</h2>
+<pre><code>[ { name: 'en0'
+  , addresses: 
+     [ { addr: '10.51.2.183'
+       , netmask: '255.255.255.0'
+       , broadaddr: '10.51.2.255'
+       }
+     ]
+  }
+, { name: 'fw0', addresses: [] }
+, { name: 'en1', addresses: [] }
+, { name: 'lo0'
+  , addresses: [ { addr: '127.0.0.1', netmask: '255.0.0.0' } ]
+  , flags: 'PCAP_IF_LOOPBACK'
+  }
+]
+</code></pre>
+<h3><a id="user-content-deep-decode-of-curl-nodejsorg-" class="deep-link" href="https://www.npmjs.com/package/pcap#deep-decode-of-curl-nodejsorg-"><svg aria-hidden="true" class="deep-link-icon" height="16" version="1.1" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Deep decode of <code>curl nodejs.org</code>:</h3>
+<p>Running <code>sys.inspect</code> on the first three decoded packets of this TCP session.</p>
+<p>First packet, TCP SYN:</p>
+<pre><code>{ ethernet: 
+   { dhost: '00:18:39:ff:f9:1c'
+   , shost: '00:1f:5b:ce:3e:29'
+   , ethertype: 2048
+   , ip: 
+      { version: 4
+      , header_length: 5
+      , diffserv: 0
+      , total_length: 64
+      , identification: 49042
+      , flags: { reserved: 0, df: 1, mf: 0 }
+      , fragment_offset: 0
+      , ttl: 64
+      , protocol: 6
+      , header_checksum: 35325
+      , saddr: '10.240.0.133'
+      , daddr: '97.107.132.72'
+      , protocol_name: 'TCP'
+      , tcp: 
+         { sport: 57230
+         , dport: 80
+         , seqno: 4179361823
+         , ackno: 1540242985
+         , data_offset: 11
+         , reserved: 0
+         , flags: 
+            { cwr: 0
+            , ece: 0
+            , urg: 0
+            , ack: 0
+            , psh: 0
+            , rst: 0
+            , syn: 1
+            , fin: 0
+            }
+         , window_size: 65535
+         , checksum: 2601
+         , urgent_pointer: 0
+         , payload_offset: 78
+         , payload: { length: 0 }
+         }
+      }
+   }
+, pcap_header: 
+   { time: Sat, 22 May 2010 07:48:40 GMT
+   , tv_sec: 1274514520
+   , tv_usec: 820479
+   , caplen: 78
+   , len: 78
+   , link_type: 'LINKTYPE_ETHERNET'
+   }
+}
+</code></pre>
+<p>Second packet, TCP SYN+ACK:</p>
+<pre><code>{ ethernet: 
+   { dhost: '00:1f:5b:ce:3e:29'
+   , shost: '00:18:39:ff:f9:1c'
+   , ethertype: 2048
+   , ip: 
+      { version: 4
+      , header_length: 5
+      , diffserv: 32
+      , total_length: 60
+      , identification: 0
+      , flags: { reserved: 0, df: 1, mf: 0 }
+      , fragment_offset: 0
+      , ttl: 48
+      , protocol: 6
+      , header_checksum: 22900
+      , saddr: '97.107.132.72'
+      , daddr: '10.240.0.133'
+      , protocol_name: 'TCP'
+      , tcp: 
+         { sport: 80
+         , dport: 57230
+         , seqno: 1042874392
+         , ackno: 973076764
+         , data_offset: 10
+         , reserved: 0
+         , flags: 
+            { cwr: 0
+            , ece: 0
+            , urg: 0
+            , ack: 1
+            , psh: 0
+            , rst: 0
+            , syn: 1
+            , fin: 0
+            }
+         , window_size: 5792
+         , checksum: 35930
+         , urgent_pointer: 0
+         , payload_offset: 74
+         , payload: { length: 0 }
+         }
+      }
+   }
+, pcap_header: 
+   { time: Sat, 22 May 2010 07:48:40 GMT
+   , tv_sec: 1274514520
+   , tv_usec: 915980
+   , caplen: 74
+   , len: 74
+   , link_type: 'LINKTYPE_ETHERNET'
+   }
+}
+</code></pre>
+<p>Third packet, TCP ACK, 3-way handshake is now complete:</p>
+<pre><code>{ ethernet: 
+   { dhost: '00:18:39:ff:f9:1c'
+   , shost: '00:1f:5b:ce:3e:29'
+   , ethertype: 2048
+   , ip: 
+      { version: 4
+      , header_length: 5
+      , diffserv: 0
+      , total_length: 52
+      , identification: 39874
+      , flags: { reserved: 0, df: 1, mf: 0 }
+      , fragment_offset: 0
+      , ttl: 64
+      , protocol: 6
+      , header_checksum: 44505
+      , saddr: '10.240.0.133'
+      , daddr: '97.107.132.72'
+      , protocol_name: 'TCP'
+      , tcp: 
+         { sport: 57230
+         , dport: 80
+         , seqno: 4179361823
+         , ackno: 1540242985
+         , data_offset: 8
+         , reserved: 0
+         , flags: 
+            { cwr: 0
+            , ece: 0
+            , urg: 0
+            , ack: 1
+            , psh: 0
+            , rst: 0
+            , syn: 0
+            , fin: 0
+            }
+         , window_size: 65535
+         , checksum: 53698
+         , urgent_pointer: 0
+         , payload_offset: 66
+         , payload: { length: 0 }
+         }
+      }
+   }
+, pcap_header: 
+   { time: Sat, 22 May 2010 07:48:40 GMT
+   , tv_sec: 1274514520
+   , tv_usec: 916054
+   , caplen: 66
+   , len: 66
+   , link_type: 'LINKTYPE_ETHERNET'
+   }
+}
+</code></pre>
+<h2><a id="user-content-help-wanted" class="deep-link" href="https://www.npmjs.com/package/pcap#help-wanted"><svg aria-hidden="true" class="deep-link-icon" height="16" version="1.1" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Help Wanted</h2>
+<p>I want to build up decoders and printers for all popular protocols.  Patches are welcome.</p>
+<h2><a id="user-content-license---mit-license" class="deep-link" href="https://www.npmjs.com/package/pcap#license---mit-license"><svg aria-hidden="true" class="deep-link-icon" height="16" version="1.1" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>LICENSE - "MIT License"</h2>
+<p>Copyright (c) 2010 Matthew Ranney, <a href="http://ranney.com/">http://ranney.com/</a></p>
+<p>Permission is hereby granted, free of charge, to any person
+obtaining a copy of this software and associated documentation
+files (the "Software"), to deal in the Software without
+restriction, including without limitation the rights to use,
+copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following
+conditions:</p>
+<p>The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.</p>
+
+  </div>
+
+</div>
+
+<div class="sidebar">
+
+    <div class="promotion" data-promotion-id="727" data-promotion-spot="packagePage"><div class="marketing">
+<h3 id="marketing-texthed">
+<a href="https://www.npmjs.com/enterprise" title="npm Enterprise">We ♥ your boss</a></h3>
+
+<p>Selectively mirror the npm registry inside your firewall. Filter packages based on security, licensing, code quality and more. Build awesome stuff faster. <a href="https://www.npmjs.com/enterprise" title="npm Enterprise" target="_blank">Try npm Enterprise for free…</a></p></div></div>
+
+    <div class="autoselect-wrapper npm-install icon-download">
+      <input type="text" value="npm install pcap" readonly="">
+      <p><a href="https://www.npmjs.com/package/pcap/tutorial">how? learn more</a></p>
+    </div>
+
+  <ul class="box">
+
+      <li class="last-publisher">
+          <a href="https://www.npmjs.com/~mjr">
+            <img src="./pcap_files/f2602cabcccbe70f6e73e0c86379921d" alt="mjr">
+            <span>mjr</span>
+          </a>
+          published
+          <span data-date="2015-02-10T21:34:31.277Z" data-date-format="relative">2 years ago</span>
+      </li>
+
+    <li>
+      <strong>2.0.1</strong>
+      is the latest
+        of 33 releases
+    </li>
+
+      <li>
+        <a href="https://github.com/mranney/node_pcap">github.com/mranney/node_pcap</a>
+      </li>
+
+
+
+  </ul>
+
+    <h3 title="collaborators">
+      Collaborators
+      <small><a href="https://www.npmjs.com/package/pcap/access">list</a></small>
+    </h3>
+
+    <ul class="humans collaborators">
+        <li>
+            <a href="https://www.npmjs.com/~mjr" rel="tipsy" original-title="mjr">
+                <img src="./pcap_files/f2602cabcccbe70f6e73e0c86379921d" alt="mjr">
+            </a>
+        </li>
+        <li>
+            <a href="https://www.npmjs.com/~ujjwalt" rel="tipsy" original-title="ujjwalt">
+                <img src="./pcap_files/701bd4e42b981a28d561b2a9475801f5" alt="ujjwalt">
+            </a>
+        </li>
+
+
+    </ul>
+
+    <h3>Stats</h3>
+    <ul class="box">
+
+        <li>
+          <strong class="pretty-number daily-downloads">62</strong>
+          downloads in the last day
+        </li>
+        <li>
+          <strong class="pretty-number weekly-downloads">342</strong>
+          downloads in the last week
+        </li>
+        <li>
+          <strong class="pretty-number monthly-downloads">904</strong>
+          downloads in the last month
+        </li>
+
+        <li id="issues" data-ghapi="https://api.github.com/repos/mranney/node_pcap">
+          <span class="original" style="display: none;">Have an issue? <a href="https://github.com/mranney/node_pcap/issues">63 open issues</a></span>
+            <span class="enhanced" style="">
+              <a href="https://github.com/mranney/node_pcap/issues">63 open issues</a> on GitHub
+            </span>
+        </li>
+
+        <li id="pull_requests" style="">
+          <a href="https://github.com/mranney/node_pcap/pulls">15 open pull requests</a> on GitHub
+        </li>
+
+    </ul>
+
+        <h3>Try it out</h3>
+        <ul class="box">
+          <li class="runkit"><a href="https://runkit.com/npm/pcap" target="_blank">Test pcap in your browser.</a></li>
+        </ul>
+
+
+  <h3>Keywords</h3>
+  <p class="list-of-links">
+      None
+  </p>
+
+  <h3>Dependencies (2)</h3>
+  <p class="list-of-links">
+          <a href="https://www.npmjs.com/package/nan">nan</a>,
+                <a href="https://www.npmjs.com/package/socketwatcher">socketwatcher</a>
+  </p>
+
+    <h3><a href="https://www.npmjs.com/browse/depended/pcap">Dependents (31)</a></h3>
+    <p class="list-of-links dependents">
+
+          <a href="https://www.npmjs.com/package/dash-doorbell">dash-doorbell</a>,
+        
+          <a href="https://www.npmjs.com/package/iobroker.amazon-dash">iobroker.amazon-dash</a>,
+        
+          <a href="https://www.npmjs.com/package/node-dash-button">node-dash-button</a>,
+        
+          <a href="https://www.npmjs.com/package/dash-button">dash-button</a>,
+        
+          <a href="https://www.npmjs.com/package/arp-listener">arp-listener</a>,
+        
+          <a href="https://www.npmjs.com/package/dashbutton2mqtt">dashbutton2mqtt</a>,
+        
+          <a href="https://www.npmjs.com/package/tenhud">tenhud</a>,
+        
+          <a href="https://www.npmjs.com/package/rhttp_trace">rhttp_trace</a>,
+        
+          <a href="https://www.npmjs.com/package/tcap">tcap</a>,
+        
+          <a href="https://www.npmjs.com/package/http_trigger">http_trigger</a>,
+        
+          <a href="https://www.npmjs.com/package/redis_trace">redis_trace</a>,
+        
+          <a href="https://www.npmjs.com/package/dns-validator">dns-validator</a>,
+        
+          <a href="https://www.npmjs.com/package/pdnsjs">pdnsjs</a>,
+        
+          <a href="https://www.npmjs.com/package/osser-sample">osser-sample</a>,
+        
+          <a href="https://www.npmjs.com/package/nodewol">nodewol</a>,
+        
+          <a href="https://www.npmjs.com/package/htracr">htracr</a>,
+        
+          <a href="https://www.npmjs.com/package/hdrgrab">hdrgrab</a>,
+        
+          <a href="https://www.npmjs.com/package/unified2">unified2</a>,
+        
+          <a href="https://www.npmjs.com/package/tcpghost">tcpghost</a>,
+        
+          <a href="https://www.npmjs.com/package/network-monitor">network-monitor</a>,
+        
+          <a href="https://www.npmjs.com/package/http_trace">http_trace</a>,
+        
+          <a href="https://www.npmjs.com/package/pcappp">pcappp</a>,
+        
+          <a href="https://www.npmjs.com/package/vigilante">vigilante</a>,
+        
+          <a href="https://www.npmjs.com/package/arper">arper</a>,
+        
+          <a href="https://www.npmjs.com/package/node-red-contrib-pcap">node-red-contrib-pcap</a>,
+        
+          <a href="https://www.npmjs.com/package/net_events">net_events</a>,
+        
+          <a href="https://www.npmjs.com/package/pimatic-dash-button">pimatic-dash-button</a>,
+        
+          <a href="https://www.npmjs.com/package/node-nms">node-nms</a>,
+        
+          <a href="https://www.npmjs.com/package/freeports-srv">freeports-srv</a>,
+        
+          <a href="https://www.npmjs.com/package/dash-button-probe">dash-button-probe</a>,
+                  <a href="https://www.npmjs.com/package/arpjs">arpjs</a>    </p>
+
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "pcap",
+      "description": "raw packet capture, decoding, and analysis",
+      "url": "https://www.npmjs.com/package/pcap",
+      "keywords": "",
+      "applicationCategory": "DeveloperApplication",
+      "offers": {
+         "@type": "Offer",
+         "price": "0.00"
+      }
+    }
+  </script>
+
+    <div class="hiring-container" data-template="sidebar"><div class="ad">
+  <p>
+    <a href="http://microapps.com/were-hiring/?utm_source=npm_who_is_hiring_page&amp;utm_medium=web&amp;utm_campaign=npm_who_is_hiring" title="microapps">microapps</a> is hiring.
+    <a class="quiet" href="https://www.npmjs.com/whoshiring">View more…</a>
+  </p>
+</div></div>
+</div>
+
+
+    </div>
+
+  <footer class="pane bg-npm-navy-1">
+  
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <h3 class="h4 type-npm-pastel-3">You Need Help</h3>
+          <hr class="divider-1">
+          <ul class="list-unstyled h6 em-default">
+            <li class="pbl"><a class="type-neutral-11" href="https://docs.npmjs.com/">Documentation</a></li>
+            <li class="pbl"><a class="type-neutral-11" href="https://www.npmjs.com/support">Support / Contact Us</a></li>
+            <li class="pbl"><a class="type-neutral-11" href="http://status.npmjs.org/">Registry Status</a></li>
+            <li class="pbl"><a class="type-neutral-11" href="https://github.com/npm/www/issues">Website Issues</a></li>
+            <li class="pbl"><a class="type-neutral-11" href="https://github.com/npm/npm/issues">CLI Issues</a></li>
+            <li class="pbl"><a class="type-neutral-11" href="https://www.npmjs.com/policies/security">Security</a></li>
+          </ul>
+        </div>
+  
+        <div class="col-md-6 col-md-offset-1">
+          <h3 class="h4 type-npm-pastel-3">About npm</h3>
+          <hr class="divider-1">
+          <ul class="list-unstyled h6 em-default">
+            <li class="pbl"><a class="type-neutral-11" href="https://www.npmjs.com/about">About npm, Inc</a></li>
+            <li class="pbl"><a class="type-neutral-11" href="https://www.npmjs.com/jobs">Jobs</a></li>
+            <li class="pbl"><a class="type-neutral-11" href="https://www.npmjs.com/npm-weekly">npm Weekly</a></li>
+            <li class="pbl"><a class="type-neutral-11" href="http://blog.npmjs.org/">Blog</a></li>
+            <li class="pbl"><a class="type-neutral-11" href="https://twitter.com/npmjs">Twitter</a></li>
+            <li class="pbl"><a class="type-neutral-11" href="https://github.com/npm">GitHub</a></li>
+          </ul>
+        </div>
+  
+        <div class="col-md-6 col-md-offset-1">
+          <h3 class="h4 type-npm-pastel-3">Legal Stuff</h3>
+          <hr class="divider-1">
+          <ul class="list-unstyled h6 em-default">
+            <li class="pbl"><a class="type-neutral-11" href="https://www.npmjs.com/policies/terms">Terms of Use</a></li>
+            <li class="pbl"><a class="type-neutral-11" href="https://www.npmjs.com/policies/conduct">Code of Conduct</a></li>
+            <li class="pbl"><a class="type-neutral-11" href="https://www.npmjs.com/policies/disputes">Package Name Disputes</a></li>
+            <li class="pbl"><a class="type-neutral-11" href="https://www.npmjs.com/policies/privacy">Privacy Policy</a></li>
+            <li class="pbl"><a class="type-neutral-11" href="https://www.npmjs.com/policies/receiving-reports">Reporting Abuse</a></li>
+            <li class="pbl"><a class="type-neutral-11" href="https://www.npmjs.com/policies/">Other policies</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="txt-c container">
+      <a class="npm-loves-you type-neutral-11" href="https://www.npmjs.com/">
+        npm loves you
+      </a>
+    </div>
+  </footer>
+
+  <script defer="" async="" src="./pcap_files/3318080746.js"></script>
+  <script defer="" async="" src="./pcap_files/elqCfg.min.js"></script><!-- Eloqua -->
+
+
+
+<!-- pid&#x3D;13224 5d081e04568af681a12c7da432d370265051bcca https://www.npmjs.com www-17-west.internal.npmjs.com  -->
+<div class="drop-down-menu-overlay" data-drop-down-menu="product-navigation"></div><object id="__symantecPKIClientMessenger" data-supports-flavor-configuration="true" data-extension-version="0.5.0.109" style="display: none;"></object><span id="__symantecPKIClientDetector" style="display: none;">__PRESENT</span><div class="autocomplete-container" style="position: absolute; display: none; max-height: 400px; z-index: 9999;"><div class="autocomplete-suggestions" style="position: absolute; display: none; max-height: 400px; z-index: 9999;"></div></div></body></html>
