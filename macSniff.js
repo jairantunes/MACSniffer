@@ -28,7 +28,7 @@ pcap_session.on('packet', function (raw_packet) {
 
     var packet = pcap.decode.packet(raw_packet);
 
-    console.log( " time: "      + packet.payload.tsft + 
+    console.log( " time: "      + new Date().getTime() + 
                  " signal: "    + packet.payload.signalStrength + 
                  " type: " + packet.payload.ieee802_11Frame.type +
                  " noise: " + packet.payload.ieee802_11Frame.signalNoise +
