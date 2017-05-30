@@ -31,8 +31,7 @@ pcap_session.on('packet', function (raw_packet) {
     console.log( " time: "      + packet.payload.tsft + 
                  " signal: "    + packet.payload.signalStrength + 
                  " type: " + packet.payload.ieee802_11Frame.type +
-                 " subtype: " + packet.payload.ieee802_11Frame.subtype +
-                 " emitter: "   + packet.payload.RadioFrame.emitter +
+                 " noise: " + packet.payload.ieee802_11Frame.signalNoise +
                  " shost: "     + packet.payload.ieee802_11Frame.shost + 
                  " dhost: "     + packet.payload.ieee802_11Frame.dhost + 
                  " bssid: "     + packet.payload.ieee802_11Frame.bssid);
