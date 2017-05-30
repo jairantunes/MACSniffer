@@ -12,7 +12,7 @@
 // https://www.quora.com/How-do-I-calculate-distance-in-meters-km-yards-from-rssi-values-in-dBm-of-BLE-in-android
 // http://electronicdesign.com/communications/understanding-wireless-range-calculations
 
-var pcap = require('../node_pcap/pcap');
+var pcap = require('../../node_pcap/pcap');
 pcap_session = pcap.createSession(process.argv[2], process.argv[3]);
 
 
@@ -26,7 +26,7 @@ pcap_session.on('packet', function (raw_packet) {
     // and/or adjust our own parser routine
     var packet = pcap.decode.packet(raw_packet);
 //    console.log("strength: %s ", packet.signalStrength);
-    console.log( Date.now().toUTCString() + " PWR: " + packet.payload.signalStrength + " || shost: " + packet.payload.ieee802_11Frame.shost + " || dhost: " + packet.payload.ieee802_11Frame.dhost + " || bssid: " + packet.payload.ieee802_11Frame.bssid);
+    console.log(" PWR: " + packet.payload.signalStrength + " || shost: " + packet.payload.ieee802_11Frame.shost + " || dhost: " + packet.payload.ieee802_11Frame.dhost + " || bssid: " + packet.payload.ieee802_11Frame.bssid);
 //    console.log(packet);
 }); 
 
