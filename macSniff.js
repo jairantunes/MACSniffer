@@ -32,7 +32,7 @@ pcap_session.on('packet', function (raw_packet) {
                  " signal: "    + packet.payload.signalStrength + 
                  " type: " + packet.payload.ieee802_11Frame.type +
                  " subtype: " + packet.payload.ieee802_11Frame.subtype +
-                 " emitter: "   + packet.payload.ieee802_11Frame.emitter +
+                 " emitter: "   + packet.payload.RadioFrame.emitter +
                  " shost: "     + packet.payload.ieee802_11Frame.shost + 
                  " dhost: "     + packet.payload.ieee802_11Frame.dhost + 
                  " bssid: "     + packet.payload.ieee802_11Frame.bssid);
