@@ -30,7 +30,8 @@ pcap_session.on('packet', function (raw_packet) {
 
     console.log( " time: "      + packet.payload.tsft + 
                  " signal: "    + packet.payload.signalStrength + 
-                 " ethertype: " + packet.payload.ethertype +
+                 " type: " + packet.payload.ieee802_11Frame.type +
+                 " subtype: " + packet.payload.ieee802_11Frame.subtype +
                  " emitter: "   + packet.payload.ieee802_11Frame.emitter +
                  " shost: "     + packet.payload.ieee802_11Frame.shost + 
                  " dhost: "     + packet.payload.ieee802_11Frame.dhost + 
